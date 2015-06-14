@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign Up</title>
+</head>
+<body>
+	<section>
+		<form action="" method="post">
+			{% csrf_token %}
+			{{form.as_p}} <!-- quiere decir que creara un formulario separado por p -->
+
+
+			<input type="submit" value="Submit"> <!--creando boton de iniciar sesion -->
+
+		</form>
+	</section>
+</body>
+</html>
