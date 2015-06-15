@@ -1,4 +1,4 @@
-from django import forms
+from django import forms 
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -13,11 +13,11 @@ class UserCreationEmailForm(UserCreationForm):
 
 class EmailAuthenticationForm(forms.Form):
 	email = forms.EmailField()
-	password = forms.CharField(label = 'password', widget=forms.PasswordInput)
+	password = forms.CharField(label = 'Password', widget=forms.PasswordInput)
 	#creando un contructor
-	def __init__(self,*args,**kwargs):
+	def __init__(self, *args, **kwargs):
 		self.user_cache = None #el usuario que voy a validad este vacio
-		super(EmailAuthenticationForm,self).__init__(self, *args, **kwargs)
+		super(EmailAuthenticationForm, self).__init__(*args, **kwargs)
 
 		#validar que el usuario exista que haya un usuario con ese email y ese password
 	def clean(self):

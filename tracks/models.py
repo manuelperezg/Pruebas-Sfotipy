@@ -10,5 +10,19 @@ class Track(models.Model):
 	album = models.ForeignKey(Album) #relacionando a la tabla album
 	artis = models.ForeignKey(Artist) #Relacionando a la tabla artista
 
+#las triples comillas se usan cuando se agregara un script multiline
+	#creando un reproductor para el administrador
+	def player(self):
+		return """      
+		<audio controls> 
+			<source src = "%s" type="audio/mpeg">
+			Tu navegador no soporta este reproductor
+
+		</audio>
+		
+		"""% self.track_file.url
+	player.allow_tags = True #para que trate el codigo o renderize como html
+	player.admin_order_field = 'track_file' #para que se pueda ordenar por el reproductor
+
 	def __unicode__(self):
 		return self.title
